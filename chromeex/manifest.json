@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
  "manifest_version": 2,
  "name": "Important Words Highlighter",
  "description": "This extension highlights important words in a selected paragraph.",
@@ -19,26 +18,3 @@
   }
  ]
 }
-=======
-  "manifest_version": 2,
-
-  "name": "One-click Kittens",
-  "description": "This extension demonstrates a browser action with kittens.",
-  "version": "1.0",
-
-  "permissions": [
-    "https://secure.flickr.com/"
-  ],
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  },
-  "content_scripts" : [
-     {
-      "matches": ["http://en.wikipedia.org/wiki/Led_Zeppelin"],
-	    "css": ["importantwords.css"],
-      "js": ["importantwords.js","jquery-1.11.1.js"]
-    }  
-  ]
-}
->>>>>>> 14d6b9e7cd0b139b5c3db4a38b795bdebbefdb38

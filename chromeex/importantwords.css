@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .userSelection {
  background-color: rgba(255,255,0,0.0);
  font-size: 13px;
@@ -10,34 +9,3 @@
  font-size: 15px !important;
  color: black;
 }
-=======
-#backgroundMask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #FFF;
-    filter:alpha(opacity=50);
-    -moz-opacity:0.5;
-    -khtml-opacity: 0.5;
-    opacity: 0.5;
-    z-index: 5000;
-}
-
-#overlay {
-    width:500px;
-    height:500px;
-    background:#87CEFA;
-    position:fixed;
-    top:50%;
-    left:50%;
-    margin-top:-250px; /* negative half the size of height */
-    margin-left:-250px; /* negative half the size of width */
-    border: 1px solid #FFF;
-}
-
-.highlightedword {
-    font-weight: bold;
-}
->>>>>>> 14d6b9e7cd0b139b5c3db4a38b795bdebbefdb38
