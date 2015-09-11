@@ -30,7 +30,6 @@ var Home = (function() {
 				return this.html(function() {
 					return $(this).text().replace(regex, function(text) {return _getTagreplacementText(tag,text);});
 				});
-			};
 		},
 		findgems : function(e) {
 			e.preventDefault();

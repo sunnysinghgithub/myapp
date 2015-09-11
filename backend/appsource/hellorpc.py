@@ -25,28 +25,19 @@ class HelloRPC(object):
     	'''
 	tokenized_sentence = word_tokenize(sentence)
 	punctuation = re.compile(r'[-.?!,":;()|0-9]')
-
 	tokenized_sentence = list(filter(None,tokenized_sentence))
-
 	tokenized_sentence = [punctuation.sub("", word) for word in tokenized_sentence]
-
-	tagged_sent = pos_tag(tokenized_sentence)
-
-	interest_types = ["NN","NNP","NNS","VBG","VB"]
-
 	extracted = []
-
-	
 	for w in tokenized_sentence:
 		if (w.lower() not in stopwords.words('english') and w != ""):
 			extracted.append(w)
-		
+	tagged_sent = pos_tag(extracted)
+	interest_types = ["NN","NNP","NNS","VBG","VB"]
 	for tagged in tagged_sent:
 	    word_type = tagged[1]
 	    if word_type in interest_types:
 	        if (tagged[0] not in extracted and tagged[0] != ""):
 	            extracted.append(tagged[0])
-
 	importantwords = ', '.join(extracted)
 	'''
 	extracted = []
@@ -56,7 +47,7 @@ class HelloRPC(object):
 	keywords = rake.run(sentence)
 
         return json.dumps([dict(name=keyword[0],weight=keyword[1]) for keyword in keywords])
-
+		
 s = zerorpc.Server(HelloRPC())
 s.bind("tcp://0.0.0.0:5000")
 s.run()

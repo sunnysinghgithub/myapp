@@ -122,7 +122,11 @@ def generate_candidate_keyword_scores(phrase_list, word_score):
 class Rake(object):
     def __init__(self, stop_words_path):
         self.stop_words_path = stop_words_path
+<<<<<<< HEAD
         self.__stop_words_pattern = build_stop_word_regex(stop_words_path)
+=======
+        self.__stop_words_pattern = build_stop_word_regex(stoppath)
+>>>>>>> 14d6b9e7cd0b139b5c3db4a38b795bdebbefdb38
 
     def run(self, text):
         sentence_list = split_sentences(text)
