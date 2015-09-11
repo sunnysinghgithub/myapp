@@ -2,10 +2,13 @@ import zerorpc
 import sys
 import nltk
 import logging
+import json
 from nltk.tag import pos_tag
 from nltk.help import upenn_tagset
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+from nltk import FreqDist
+from rake import Rake
 import re
 
 root = logging.getLogger()
@@ -19,7 +22,8 @@ root.addHandler(ch)
 
 class HelloRPC(object):
     def hello(self, sentence):    	
-    	tokenized_sentence = word_tokenize(sentence)
+    	'''
+	tokenized_sentence = word_tokenize(sentence)
 	punctuation = re.compile(r'[-.?!,":;()|0-9]')
 
 	tokenized_sentence = list(filter(None,tokenized_sentence))
@@ -32,12 +36,11 @@ class HelloRPC(object):
 
 	extracted = []
 
-	'''
+	
 	for w in tokenized_sentence:
 		if (w.lower() not in stopwords.words('english') and w != ""):
 			extracted.append(w)
-	'''
-	
+		
 	for tagged in tagged_sent:
 	    word_type = tagged[1]
 	    if word_type in interest_types:
@@ -45,8 +48,14 @@ class HelloRPC(object):
 	            extracted.append(tagged[0])
 
 	importantwords = ', '.join(extracted)
-			
-        return "Hello, %s" % importantwords
+	'''
+	extracted = []
+	
+	rake = Rake("SmartStoplist.txt")
+
+	keywords = rake.run(sentence)
+
+        return json.dumps([dict(name=keyword[0],weight=keyword[1]) for keyword in keywords])
 
 s = zerorpc.Server(HelloRPC())
 s.bind("tcp://0.0.0.0:5000")

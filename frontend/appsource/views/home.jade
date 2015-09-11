@@ -1,26 +1,33 @@
 doctype html
 html(lang="en")
 	head
-		title = Welcome!
+		title = Important Words Highlighter!
 		meta(charset='utf-8')
 		meta(http-equiv='X-UA-Compatible', content='IE=edge')
 		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", rel="stylesheet")
 		link(href="/stylesheets/home.css", rel="stylesheet")
+		link(href="/stylesheets/bootstrap-switch.min.css", rel="stylesheet")
 		script(src="https://code.jquery.com/jquery-2.1.4.min.js")
 		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
 		script(src="/javascripts/home.js")		
-	body
-		div.jumbotron
+		script(src="/javascripts/bootstrap-switch.min.js")
+	body.main
+		div.page-wrap
+			div.jumbotron
+				div.container
+					h1
+						a#homelink(href="/home")
+							| Read Smart. Be Smart.
+					p
+						| We help you read what matters.
 			div.container
-				h1 Read Smart. Be Smart.
-				p
-					| A simple and easy way to see what matters the most.
-		div.container
-			div.row
 				form#form-main
 					p
 						textarea#usertext.form-control(rows='15' placeholder='Enter some text here and let us find your gems') 
 					p
-						div(align='center')
-							button#btn-findgems.btn.btn-primary(type='submit' value='Submit') Find my gems
+						div#div-submit(align='center')
+							button#btn-findgems.btn.btn-primary.btn-lg(type='submit' value='Submit') Find my gems!
+				div#userselection
+					input#checkbox-usersel(type='checkbox')
+					hr
 				div#gems

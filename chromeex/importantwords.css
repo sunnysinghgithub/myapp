@@ -1,0 +1,11 @@
+.userSelection {
+ background-color: rgba(255,255,0,0.0);
+ font-size: 13px;
+ color: gray;
+}
+
+.impword {
+ font-weight: bold;
+ font-size: 15px !important;
+ color: black;
+}

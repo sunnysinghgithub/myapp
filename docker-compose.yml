@@ -1,5 +1,5 @@
 frontend:
- image: nodejs
+ image: frontend
  command: bash -c "cd appsource && npm install && npm start"
  volumes:
   - "./frontend/appsource:/appsource"
