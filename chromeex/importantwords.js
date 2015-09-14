@@ -23,7 +23,7 @@ var ImportatntWordsProcessor = (function() {
 			$.ajax({
 				method: "POST",
 				contentType: "application/json",
-				url: "http://172.17.0.6:3000/findgems",
+				url: "http://52.8.7.146:3000/findgems",
 				data: JSON.stringify(userTextObj),
 				dataType: "json",
 				success: Hilighter.highlight
