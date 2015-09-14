@@ -59,6 +59,6 @@ var Hilighter = (function() {
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	if (request.method == "highlightImpWords") {
-		ImportantWordsProcessor.hilightImpWords();
+		ImportantWordsProcessor.highlightImpWords();
 	}
 });
