@@ -9,8 +9,13 @@ var ImportatntWordsProcessor = (function() {
 				userSelectionApplier = rangy.createClassApplier("userSelection");
 			}
 			userSelectionApplier.toggleSelection();
+			var userSelectionText = '';
+			if (window.getSelection) {
+				userSelectionText = window.getSelection().toString();
+			} else if (document.selection) {
+				userSelectionText = document.selection.createRange().text;
+			}
 			ImportantWordsProcessor.getImportantWords(userSelectionText);
-		
 		},
 		getImportantWords : function(userText) {
 			userTextObj = {};
@@ -23,6 +28,10 @@ var ImportatntWordsProcessor = (function() {
 				dataType: "json",
 				success: Hilighter.highlight
 			});
+		}
+	};
+}());
+
 var Hilighter = (function() {
 	return {
 		highlight : function(impWords) {
